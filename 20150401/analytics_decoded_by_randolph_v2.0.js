@@ -90,7 +90,7 @@
         return a
     };
     
-    // 檢查 inpur a 是否為 function
+    // 檢查 input a 是否為 function
     // var ea = function(a) {}
     // var is_function = function(a) {
     var is_function = function(target) {
@@ -182,7 +182,7 @@
             if (target.addEventListener) {
                 // if 'undefined' === typeof capture_status, !!capture_status = false
                 target.addEventListener(event, call_function, !!capture_status); // DOM => addEventListener(event, function, capture/bubble)
-            } esle if (target.attachEvent) {
+            } else if (target.attachEvent) {
                 target.attachEvent("on" + event, call_function); // DOM2 => attachEvent(event, function)
             }
         } catch(e) {
@@ -343,9 +343,10 @@
     };
     
     var Mc = function() {
+        var a = window["navigator"].userAgent + (document["cookie"] ? document["cookie"] : "") + (document.referrer ? document.referrer : "");
+        var b = a["length"];
+        
         for (
-            var a = window["navigator"].userAgent + (document["cookie"] ? document["cookie"] : "") + (document.referrer ? document.referrer : ""),
-            var b = a["length"],
             var c = window.history["length"];
             0 < c;
         ) {
@@ -801,7 +802,7 @@
     var R = function(a, b) {
         var c = a.get(b);
         
-        if (undefined == c) || ("" === c)) {
+        if ((undefined == c) || ("" === c)) {
             return 0;
         }
         
@@ -1561,7 +1562,7 @@
             var c = P(a, "legacyCookieDomain") || get_main_domain();
             var d = Xc("__utma", c, b);
             
-            if (d) (
+            if (d) {
                 J(19);
                 a.set("_utmht", (new Date)["getTime"](), true);
                 a.set("_utma", d.R);
@@ -1677,7 +1678,7 @@
         if (null == a) {
             c = 1;
             d = 1;
-        } esle {
+        } else {
             c = ga_data_string_hash(a);
             
             // d = ga_data_string_hash(is_start_with(a, ".") ? a["substring"](1) : "." + a);
@@ -2494,7 +2495,7 @@
             }
         }
         
-        if ((0 >= ca[0]) || (0 >= ca[1]))
+        if ((0 >= ca[0]) || (0 >= ca[1])) {
             c = "";
         } else {
             c = ca["join"]("x");
@@ -2727,8 +2728,9 @@
     };
     
     var ae = function(a) {
+        var b = (a["hostname"] || "")["split"](":")[0]["toLowerCase"]();
+        
         function b(a) {
-            var b = (a["hostname"] || "")["split"](":")[0]["toLowerCase"](),
             var c = (a["protocol"] || "")["toLowerCase"]();
             
             c = 1 * a["port"] || ("http:" == c ? 80 : "https:" == c ? 443 : "");
